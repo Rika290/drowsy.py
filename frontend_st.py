@@ -19,7 +19,7 @@ elif(choice=='Camera'):
     window=st.empty()
     b=st.button('Start')
     if b:
-        v=cv2.VideoCapture(0) # as a is 0 here, int(a) is taken.. 
+        v=cv2.VideoCapture(0) # as a is 0 here, int(a) is taken..                     
         f_cas=cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
         e_cas=cv2.CascadeClassifier('haarcascade_eye.xml')
         m_cas=cv2.CascadeClassifier('mouth.xml')
@@ -30,7 +30,7 @@ elif(choice=='Camera'):
 
         font = cv2.FONT_HERSHEY_COMPLEX_SMALL
         
-        while True:
+        while v.isOpened()):
             flag,frame=v.read()
             if flag:
                 gray=cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)

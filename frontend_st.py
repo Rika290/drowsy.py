@@ -1,6 +1,5 @@
 import streamlit as st
 import cv2
-from pygame import mixer
 import numpy as np
 from keras.models import load_model
 model = load_model("keras_model_1.h5", compile=False)

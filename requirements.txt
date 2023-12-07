@@ -1,6 +1,5 @@
 opencv-python-headless
 streamlit 
 tensorflow
-playsound
+mixer
 pygame
-winsound

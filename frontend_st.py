@@ -30,7 +30,7 @@ elif(choice=='Camera'):
 
         font = cv2.FONT_HERSHEY_COMPLEX_SMALL
         
-        while v.isOpened()):
+        while (v.isOpened()):
             flag,frame=v.read()
             if flag:
                 gray=cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)

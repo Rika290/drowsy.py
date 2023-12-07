@@ -60,16 +60,7 @@ elif(choice=='Camera'):
                         if(confidence_score_a)<=0.8:
                             cv2.rectangle(roi_b,(ex,ey),(ex+ew,ey+eh),(255,0,0),2)
                             cv2.putText(frame,"EYES:- close",(10,40), font, 1,(255,0,0),1,cv2.LINE_AA)
-                            def autoplay_audio(file_path: str):
-                                with open(file_path, "rb") as f:
-                                    data = f.read()
-                                    b64 = base64.b64encode(data).decode()
-                                    md = f"""
-                                    <audio controls autoplay="true">
-                                    <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
-                                    </audio>
-                                    """
-                            autoplay_audio("alert.wav")
+                            st.warning('Alert')
 
                         else:
                             cv2.rectangle(roi_b,(ex,ey),(ex+ew,ey+eh),(0,0,255),2)
@@ -93,7 +84,7 @@ elif(choice=='Camera'):
                         if(confidence_score_b)>=0.8:
                             cv2.rectangle(frame,(x,y),(x+w,y+h),(0,0,255),2)                
                             cv2.putText(frame,"MOUTH:- open",(10,90), font, 1,(0,0,255),1,cv2.LINE_AA)
-                            
+                            st.warning('Alert')                            
 
                         else:
                             cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
@@ -147,6 +138,8 @@ elif(choice=='IP Camera'):
                         if(confidence_score_a)<=0.8:
                             cv2.rectangle(roi_b,(ex,ey),(ex+ew,ey+eh),(255,0,0),2)
                             cv2.putText(frame,"EYES:- close",(10,40), font, 1,(255,0,0),1,cv2.LINE_AA)
+                            st.warning('Alert')
+
                             
                         else:
                             cv2.rectangle(roi_b,(ex,ey),(ex+ew,ey+eh),(0,0,255),2)
@@ -170,6 +163,8 @@ elif(choice=='IP Camera'):
                         if(confidence_score_b)>=0.8:
                             cv2.rectangle(frame,(x,y),(x+w,y+h),(0,0,255),2)                
                             cv2.putText(frame,"MOUTH:- open",(10,90), font, 1,(0,0,255),1,cv2.LINE_AA)
+                            st.warning('Alert')
+
                             
 
                         else:

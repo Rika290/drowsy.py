@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-import winsound
+import time
 
 from keras.models import load_model
 model = load_model("keras_model_1.h5", compile=False)
@@ -47,8 +47,17 @@ while True:
                 if(confidence_score_a)<=0.8:
                     cv2.rectangle(roi_b,(ex,ey),(ex+ew,ey+eh),(255,0,0),2)
                     cv2.putText(frame,"EYES:- close",(10,40), font, 1,(255,0,0),1,cv2.LINE_AA)
-                    winsound.PlaySound('alert.wav',winsound.SND_FILENAME)
+                    html_string = """
+                            <audio controls autoplay>
+                            <source src="https://www.orangefreesounds.com/wp-content/uploads/2023/09/80s-alarm-clock-sound.mp3" type="audio/mp3">
+                            </audio>
+                            """
 
+                            sound = st.empty()
+                            sound.markdown(html_string, unsafe_allow_html=True)  # will display a st.audio with the sound you specified in the "src" of the html_string and autoplay it
+                            time.sleep(3)  # wait for 2 seconds to finish the playing of the audio
+                            sound.empty()  # optionally delete the element afterwards
+                            
                 else:
                     cv2.rectangle(roi_b,(ex,ey),(ex+ew,ey+eh),(0,0,255),2)
                     cv2.putText(frame,"EYES:- open",(10,40), font, 1,(0,0,255),1,cv2.LINE_AA)
@@ -71,8 +80,17 @@ while True:
                 if(confidence_score_b)>=0.8:
                     cv2.rectangle(frame,(x,y),(x+w,y+h),(0,0,255),2)                
                     cv2.putText(frame,"MOUTH:- open",(10,90), font, 1,(0,0,255),1,cv2.LINE_AA)
-                    winsound.PlaySound('alert.wav',winsound.SND_FILENAME)
+                    html_string = """
+                            <audio controls autoplay>
+                            <source src="https://www.orangefreesounds.com/wp-content/uploads/2023/09/80s-alarm-clock-sound.mp3" type="audio/mp3">
+                            </audio>
+                            """
 
+                            sound = st.empty()
+                            sound.markdown(html_string, unsafe_allow_html=True)  # will display a st.audio with the sound you specified in the "src" of the html_string and autoplay it
+                            time.sleep(3)  # wait for 2 seconds to finish the playing of the audio
+                            sound.empty()  # optionally delete the element afterwards
+                            
                 else:
                     cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)                
                     cv2.putText(frame,"MOUTH:- close",(10,90), font, 1,(0,255,0),1,cv2.LINE_AA)                                                                            

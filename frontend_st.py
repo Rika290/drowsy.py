@@ -6,8 +6,7 @@ from keras.models import load_model
 model = load_model("keras_model_1.h5", compile=False)
 model_a=load_model("keras_model.h5", compile=False)
 
-mixer.init()
-sound = mixer.Sound('alert.wav')
+
 
 st.set_page_config(page_title='Drowsiness Detection',page_icon= 'https://i.pinimg.com/originals/0a/1f/f1/0a1ff1e3e1ffd7750aec75d572429b00.jpg')
 st.title('WELCOME TO DROWSINESS DETECTION 😴⚠🔊')

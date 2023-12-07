@@ -95,7 +95,7 @@ elif(choice=='IP Camera'):
     window=st.empty()
     b=st.button('Start')
     if b:
-        v=cv2.VideoCapture(int(a))
+        v=cv2.VideoCapture(a)
         f_cas=cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
         e_cas=cv2.CascadeClassifier('haarcascade_eye.xml')
         m_cas=cv2.CascadeClassifier('mouth.xml')

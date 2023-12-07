@@ -138,7 +138,16 @@ elif(choice=='IP Camera'):
                         if(confidence_score_a)<=0.8:
                             cv2.rectangle(roi_b,(ex,ey),(ex+ew,ey+eh),(255,0,0),2)
                             cv2.putText(frame,"EYES:- close",(10,40), font, 1,(255,0,0),1,cv2.LINE_AA)
-                            st.warning('Alert')
+                            html_string = """
+                            <audio controls autoplay>
+                            <source src="https://www.orangefreesounds.com/wp-content/uploads/2022/04/Small-bell-ringing-short-sound-effect.mp3" type="audio/mp3">
+                            </audio>
+                            """
+
+                            sound = st.empty()
+                            sound.markdown(html_string, unsafe_allow_html=True)  # will display a st.audio with the sound you specified in the "src" of the html_string and autoplay it
+                            time.sleep(2)  # wait for 2 seconds to finish the playing of the audio
+                            sound.empty()  # optionally delete the element afterwards
 
                             
                         else:

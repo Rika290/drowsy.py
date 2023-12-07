@@ -2,8 +2,7 @@ import streamlit as st
 import cv2
 import numpy as np
 from keras.models import load_model
-from pygame import mixer
-
+import time
 model = load_model("keras_model_1.h5", compile=False)
 model_a=load_model("keras_model.h5", compile=False)
 

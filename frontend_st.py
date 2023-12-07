@@ -1,10 +1,13 @@
 import streamlit as st
 import cv2
-import winsound
+from pygame import mixer
 import numpy as np
 from keras.models import load_model
 model = load_model("keras_model_1.h5", compile=False)
 model_a=load_model("keras_model.h5", compile=False)
+
+mixer.init()
+sound = mixer.Sound('alarm.wav')
 
 st.set_page_config(page_title='Drowsiness Detection',page_icon= 'https://i.pinimg.com/originals/0a/1f/f1/0a1ff1e3e1ffd7750aec75d572429b00.jpg')
 st.title('WELCOME TO DROWSINESS DETECTION 😴⚠🔊')
@@ -57,8 +60,7 @@ elif(choice=='Camera'):
                         if(confidence_score_a)<=0.8:
                             cv2.rectangle(roi_b,(ex,ey),(ex+ew,ey+eh),(255,0,0),2)
                             cv2.putText(frame,"EYES:- close",(10,40), font, 1,(255,0,0),1,cv2.LINE_AA)
-                            winsound.PlaySound('alert.wav',winsound.SND_FILENAME)
-
+                            sound.play()
                         else:
                             cv2.rectangle(roi_b,(ex,ey),(ex+ew,ey+eh),(0,0,255),2)
                             cv2.putText(frame,"EYES:- open",(10,40), font, 1,(0,0,255),1,cv2.LINE_AA)
@@ -81,8 +83,7 @@ elif(choice=='Camera'):
                         if(confidence_score_b)>=0.8:
                             cv2.rectangle(frame,(x,y),(x+w,y+h),(0,0,255),2)                
                             cv2.putText(frame,"MOUTH:- open",(10,90), font, 1,(0,0,255),1,cv2.LINE_AA)
-                            winsound.PlaySound('alert.wav',winsound.SND_FILENAME)
-
+                            sound.play()
                         else:
                             cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
                             cv2.putText(frame,"MOUTH:- close",(10,90), font, 1,(0,255,0),1,cv2.LINE_AA)                                                            
@@ -135,8 +136,7 @@ elif(choice=='IP Camera'):
                         if(confidence_score_a)<=0.8:
                             cv2.rectangle(roi_b,(ex,ey),(ex+ew,ey+eh),(255,0,0),2)
                             cv2.putText(frame,"EYES:- close",(10,40), font, 1,(255,0,0),1,cv2.LINE_AA)
-                            winsound.PlaySound('alert.wav',winsound.SND_FILENAME)
-
+                            sound.play()
                         else:
                             cv2.rectangle(roi_b,(ex,ey),(ex+ew,ey+eh),(0,0,255),2)
                             cv2.putText(frame,"EYES:- open",(10,40), font, 1,(0,0,255),1,cv2.LINE_AA)
@@ -159,8 +159,7 @@ elif(choice=='IP Camera'):
                         if(confidence_score_b)>=0.8:
                             cv2.rectangle(frame,(x,y),(x+w,y+h),(0,0,255),2)                
                             cv2.putText(frame,"MOUTH:- open",(10,90), font, 1,(0,0,255),1,cv2.LINE_AA)
-                            winsound.PlaySound('alert.wav',winsound.SND_FILENAME)
-
+                            sound.play()
                         else:
                             cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
                             cv2.putText(frame,"MOUTH:- close",(10,90), font, 1,(0,255,0),1,cv2.LINE_AA)                                                            

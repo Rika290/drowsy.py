@@ -60,7 +60,10 @@ elif(choice=='Camera'):
                         if(confidence_score_a)<=0.8:
                             cv2.rectangle(roi_b,(ex,ey),(ex+ew,ey+eh),(255,0,0),2)
                             cv2.putText(frame,"EYES:- close",(10,40), font, 1,(255,0,0),1,cv2.LINE_AA)
-                            sound.play()
+                            try:
+                                sound.play()
+                            else:
+                                pass
                         else:
                             cv2.rectangle(roi_b,(ex,ey),(ex+ew,ey+eh),(0,0,255),2)
                             cv2.putText(frame,"EYES:- open",(10,40), font, 1,(0,0,255),1,cv2.LINE_AA)
@@ -83,7 +86,10 @@ elif(choice=='Camera'):
                         if(confidence_score_b)>=0.8:
                             cv2.rectangle(frame,(x,y),(x+w,y+h),(0,0,255),2)                
                             cv2.putText(frame,"MOUTH:- open",(10,90), font, 1,(0,0,255),1,cv2.LINE_AA)
-                            sound.play()
+                            try:
+                                sound.play()
+                            else:
+                                pass
                         else:
                             cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
                             cv2.putText(frame,"MOUTH:- close",(10,90), font, 1,(0,255,0),1,cv2.LINE_AA)                                                            
@@ -136,7 +142,11 @@ elif(choice=='IP Camera'):
                         if(confidence_score_a)<=0.8:
                             cv2.rectangle(roi_b,(ex,ey),(ex+ew,ey+eh),(255,0,0),2)
                             cv2.putText(frame,"EYES:- close",(10,40), font, 1,(255,0,0),1,cv2.LINE_AA)
-                            sound.play()
+                            try:
+                                sound.play()
+                            else:
+                                pass
+                        
                         else:
                             cv2.rectangle(roi_b,(ex,ey),(ex+ew,ey+eh),(0,0,255),2)
                             cv2.putText(frame,"EYES:- open",(10,40), font, 1,(0,0,255),1,cv2.LINE_AA)
@@ -159,7 +169,10 @@ elif(choice=='IP Camera'):
                         if(confidence_score_b)>=0.8:
                             cv2.rectangle(frame,(x,y),(x+w,y+h),(0,0,255),2)                
                             cv2.putText(frame,"MOUTH:- open",(10,90), font, 1,(0,0,255),1,cv2.LINE_AA)
-                            sound.play()
+                            try:
+                                sound.play()
+                            else:
+                                pass
                         else:
                             cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
                             cv2.putText(frame,"MOUTH:- close",(10,90), font, 1,(0,255,0),1,cv2.LINE_AA)                                                            
